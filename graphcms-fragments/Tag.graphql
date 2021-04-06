@@ -1,4 +1,4 @@
-fragment Article on Article {
+fragment Tag on Tag {
   stage
   remoteId: id
   createdAt
@@ -25,33 +25,9 @@ fragment Article on Article {
       stage
     }
   }
-  title
-  content {
-    ... on RichText {
-      raw
-      html
-      markdown
-      text
-    }
-  }
-  featuredImage {
-    ... on Asset {
-      remoteTypeName: __typename
-      remoteId: id
-      locale
-      stage
-    }
-  }
-  writer {
-    ... on Writer {
-      remoteTypeName: __typename
-      remoteId: id
-      stage
-    }
-  }
-  slug
-  tags {
-    ... on Tag {
+  name
+  articles {
+    ... on Article {
       remoteTypeName: __typename
       remoteId: id
       stage

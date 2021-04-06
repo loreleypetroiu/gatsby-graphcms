@@ -7,7 +7,6 @@ import Pager from '../components/Pager';
 
 const ListArticles = ({ data, pageContext }) => {
 
-
   return (
     <Layout>
       <SEO title="Blog" />
@@ -34,9 +33,6 @@ query($skip: Int, $limit: Int) {
         writer {
           id
           name
-          picture {
-            gatsbyImageData(layout: FIXED, width: 30)
-          }
         }
       }
   }

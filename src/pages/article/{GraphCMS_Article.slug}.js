@@ -16,6 +16,13 @@ const Article = ({ data }) => {
 
   return (
     <Layout>
+      <Tags>
+        {
+          article.tags.length > 0 && article.tags.map(tag =>
+            <li key={`categ-${tag.name}`}><Link to={`/tag/${tag.remoteId}`}>{tag.name}</Link></li>
+          )
+        }
+      </Tags>
       <SEO title={article.title} />
       <h2 className='text-center'>{article.title}</h2>
 
@@ -51,6 +58,10 @@ export const article = graphql`
         }
         featuredImage {
           gatsbyImageData(layout: CONSTRAINED)
+        }
+        tags {
+          name
+          remoteId
         }
         writer {
             id
@@ -95,4 +106,20 @@ const ArticleContent = styled.section`
     display: block;
     margin: 1rem auto;
   }
+`
+
+const Tags = styled.ul`
+    text-align:center;
+    margin-bottom: 1rem;
+    li {
+        display: inline-block;
+        margin: 0 .5rem .5rem 0;
+        font-size: 1.2rem;
+        a {
+            display: block;
+            background: ${({ theme }) => theme.colors.secondary};
+            padding: 0.3rem 1rem;
+            border-radius: 3px;
+        }
+    }
 `
