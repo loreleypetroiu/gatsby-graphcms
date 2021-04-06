@@ -30,7 +30,7 @@ export const writer = graphql`
           title
           slug
           featuredImage {
-            gatsbyImageData(placeholder: DOMINANT_COLOR, layout: CONSTRAINED)
+            gatsbyImageData(layout: CONSTRAINED)
           }
         }
         
